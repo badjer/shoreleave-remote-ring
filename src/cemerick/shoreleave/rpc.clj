@@ -46,7 +46,8 @@ metadata to the function name, e.g.:
 
 (defn handle-rpc
   [{{:keys [params remote]} :params :as request}]
-  (call-remote (keyword remote) (safe-read params)))
+  (let [_ (println "Handling rpc " remote)]
+    (call-remote (keyword remote) (safe-read params))))
 
 (defn wrap-rpc
   ([app] (wrap-rpc app default-remote-uri))

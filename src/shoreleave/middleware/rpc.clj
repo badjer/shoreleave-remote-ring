@@ -12,8 +12,8 @@
 ;; The remotes get collected in a hashmap: `{remote-name-kw remote-fn, ...}`
 (def remotes (atom {}))
 
-(defn add-remote [key func]
-  (swap! remotes assoc key func))
+(defn add-remote [kee func]
+  (swap! remotes assoc kee func))
 
 (defmacro defremote
   "Same as defn, but also registers the defined function as a remote.
